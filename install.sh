@@ -4,4 +4,8 @@ sudo pacman -Syu npm
 node -v
 npm -v
 
-sudo npm install -g nodemon express
+sudo npm init -y
+sudo npm install nodemon express
+
+jq '.scripts.dev = "nodemon scrc/index.js"' package.json > temp.json && mv temp.json package.json
+jq '.scripts.start = "node src/index.js"' package.json > temp.json && mv temp.json package.json
